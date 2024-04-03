@@ -7,7 +7,7 @@
 #include <memory>
 
 class Zblock : public Block {
-    std::string pos; // Either uprightu, uprightd, sidwaysl, sidewaysr
+    blockPos pos;
     public:
         Jblock(); // Constructor
         void rotateCW(std::vector<std::shared_ptr<Row>> theGrid) override;

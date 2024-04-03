@@ -7,8 +7,7 @@
 #include <memory>
 
 class Tblock : public Block {
-    std::string pos; // Is either "upright", "upsidedown", "faceright", "faceleft"
-    // faceright and faceleft are when it is sideways, based on the protruding cell
+    blockPos pos;
     public:
         Tblock(); // Constructor
         void rotateCW(std::vector<std::shared_ptr<Row>> theGrid) override;

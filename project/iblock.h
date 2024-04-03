@@ -7,8 +7,8 @@
 #include <memory>
 
 class Iblock : public Block {
-    std::string pos; // Is either "uprightl", "uprightr", "sidewaysd", "sidewaysu"
-    // Based on if the Iblock (which is a line) is in position | or _
+    blockPos pos;
+    
     public:
         Iblock(); // Constructor
         void rotateCW(std::vector<std::shared_ptr<Row>> theGrid) override;

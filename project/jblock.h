@@ -7,7 +7,7 @@
 #include <memory>
 
 class Jblock : public Block {
-    std::string pos; // Either "faceup", "faceright", "facedown", "faceleft"
+    blockPos pos;
     public:
         Jblock(); // Constructor
         void rotateCW(std::vector<std::shared_ptr<Row>> theGrid) override;

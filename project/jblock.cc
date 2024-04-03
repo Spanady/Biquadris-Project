@@ -27,7 +27,7 @@ void Jblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
     (theGrid[x2]->(*rowData[y2])).setEmpty();
     (theGrid[x3]->(*rowData[y3])).setEmpty();
 
-    if (pos = "faceup") {
+    if (pos = FACEUP) {
         // Set the new cells
         (theGrid[x]->(*rowData[y + 2])).setBlock(blockType::J);
 
@@ -44,8 +44,8 @@ void Jblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3 + 1]));
 
         // Set the new position
-        pos = "faceright";
-    } else if ("faceright") {
+        pos = FACERIGHT;
+    } else if (pos == FACERIGHT) {
         // Set the new cells
         (theGrid[x + 2]->(*rowData[y])).setBlock(blockType::J);
 
@@ -62,8 +62,8 @@ void Jblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3 - 1]));
 
         // Set the new position
-        pos = "facedown";
-    } else if ("facedown") {
+        pos = FACEDOWN;
+    } else if (pos == FACEDOWN) {
         // Set the new cells
         (theGrid[x]->(*rowData[y])).setBlock(blockType::J);
 
@@ -80,8 +80,8 @@ void Jblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3 - 1]));
 
         // Set the new position
-        pos = "faceleft";
-    } else if ("faceleft") {
+        pos = FACELEFT;
+    } else if (pos == FACELEFT) {
         // Set the new cells
         (theGrid[x - 2]->(*rowData[y + 2])).setBlock(blockType::J);
 
@@ -98,7 +98,7 @@ void Jblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3 + 1]));
 
         // Set the new position
-        pos = "faceup";
+        pos = FACEUP;
     }
 }
 

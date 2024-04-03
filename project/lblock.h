@@ -3,11 +3,10 @@
 #include "block.h"
 #include "row.h"
 #include <vector>
-#include "string"
 #include <memory>
 
 class Lblock : public Block {
-    std::string pos; // Either "faceup", "faceright", "facedown", "faceleft"
+    blockPos pos;
     public:
         Lblock(); // Constructor
         void rotateCW(std::vector<std::shared_ptr<Row>> theGrid) override;

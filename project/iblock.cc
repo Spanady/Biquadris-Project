@@ -5,7 +5,7 @@
 
 Iblock::Iblock() {}
 
-Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
+void Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
     // Get the coordinates for all the cells the block occupies
     int x = (*occupiedCells[0]).getCol(); // Top cell
     int y = (*occupiedCells[0]).getRow();
@@ -25,7 +25,7 @@ Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
     (theGrid[x2]->(*rowData[y2])).setEmpty();
     (theGrid[x3]->(*rowData[y3])).setEmpty();
     
-    if (pos == "uprightl") {
+    if (pos == FACERIGHT) {
         // Set the new cells
         (theGrid[x]->(*rowData[y])).setBlock(blockType::I);
 
@@ -43,9 +43,9 @@ Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 + 3]->(rowData[y3 + 3]));
 
         // Set the new position
-        pos = "sidewaysu";
+        pos = FACEDOWN;
 
-    } else if (pos == "sidewaysu") {
+    } else if (pos == FACEDOWN) {
         // Set the new cells
         (theGrid[x + 3]->(*rowData[y])).setBlock(blockType::I);
 
@@ -62,8 +62,8 @@ Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3]->(rowData[y3 - 3]));
 
         // Set the new position 
-        pos = "uprightr";
-    } else if (pos == "uprightr") {
+        pos = FACELEFT;
+    } else if (pos == FACELEFT) {
         // Set the new cells
         (theGrid[x - 3]->(*rowData[y])).setBlock(blockType::I);
 
@@ -80,8 +80,8 @@ Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3]->(rowData[y3 - 3]));
 
         // Set the new position 
-        pos = "sidewaysd";
-    } else if (pos == "sidewaysd") {
+        pos = FACEUP;
+    } else if (pos == FACEUP) {
         // Set the new cells
         (theGrid[x]->(*rowData[y + 3])).setBlock(blockType::I);
 
@@ -98,11 +98,11 @@ Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 - 3]->(rowData[y3]));
 
         // Set the new position
-        pos = "uprightl";
+        pos = FACERIGHT;
     }
 }
 
-Iblock::rotateCCW(std::vector<std::shared_ptr<Row>> theGrid) {
+void Iblock::rotateCCW(std::vector<std::shared_ptr<Row>> theGrid) {
     // Rotate the block clockwise 3 times, has the same effect as rotating
     // it counter-clockwise once
     rotateCW(std::vector<std::shared_ptr<Row>> theGrid);

@@ -26,7 +26,7 @@ void Sblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
     (theGrid[x2]->(*rowData[y2])).setEmpty();
     (theGrid[x3]->(*rowData[y3])).setEmpty();
 
-    if (pos = "uprightd") {
+    if (pos == FACEUP) {
         // Set the new cells
         (theGrid[x]->(*rowData[y + 2])).setBlock(blockType::L);
 
@@ -43,8 +43,8 @@ void Sblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3 - 1]));
 
         // Set the new position
-        pos = "sidewaysl";
-    } else if ("sidewaysl") {
+        pos = FACERIGHT;
+    } else if (pos == FACERIGHT) {
         // Set the new cells
         (theGrid[x]->(*rowData[y - 1])).setBlock(blockType::L);
 
@@ -61,8 +61,8 @@ void Sblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3 + 2]));
 
         // Set the new position
-        pos = "uprightu";
-    } else if ("uprightu") {
+        pos = FACEDOWN;
+    } else if (pos == FACEDOWN) {
         // Set the new cells
         (theGrid[x + 1]->(*rowData[y + 1])).setBlock(blockType::L);
 
@@ -79,8 +79,8 @@ void Sblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         occupiedCells[3] = (theGrid[x3]->(rowData[y3 - 2]));
 
         // Set the new position
-        pos = "sidewaysr";
-    } else if ("sidewaysr") {
+        pos = FACELEFT;
+    } else if (pos == FACELEFT) {
         // Set the new cells
         (theGrid[x - 1]->(*rowData[y - 2])).setBlock(blockType::L);
 
@@ -91,13 +91,13 @@ void Sblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
         (theGrid[x3]->(*rowData[y3 + 1])).setBlock(blockType::L);
 
         // Set the new occupied cells
-        occupiedCells[0] = (theGrid[x - 1]->(rowDasetBlock(blockType::L);;
+        occupiedCells[0] = (theGrid[x - 1]->(rowData[y - 2]));
         occupiedCells[1] = (theGrid[x1]->(rowData[y1 - 1]));
         occupiedCells[2] = (theGrid[x2 - 1]->(rowData[y2]));
         occupiedCells[3] = (theGrid[x3]->(rowData[y3 + 1]));
 
         // Set the new position
-        pos = "uprightd";
+        pos = FACEUP;
     }
 }
 
