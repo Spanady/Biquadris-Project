@@ -10,10 +10,10 @@
 // No instances of the abstract Block class will be created
 
 class Block {
-    std::vector<std::shared_ptr<Cell>> occupiedCells; // Vector of all the cells the block occupies
-    bool heavy; // True if the block is heavy, false if it is not heavy (special effect)
-    // string position; // Is either UPRIGHT, UPSIDEDOWN, LEFT, RIGHT
-
+    protected: 
+        std::vector<std::shared_ptr<Cell>> occupiedCells; // Vector of all the cells the block occupies
+        bool heavy; // True if the block is heavy, false if it is not heavy (special effect)
+        // string position; // Is either UPRIGHT, UPSIDEDOWN, LEFT, RIGHT
 
     public:
         // Rotating functions
