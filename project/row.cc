@@ -3,7 +3,7 @@
 Row::Row(int _row) 
     : filledCells{0}, row{_row} {
     for (int i = 0; i < rowData.size(); ++i) {
-        rowData[i] = std::make_unique<Cell>(_row, i);
+        rowData[i] = std::make_shared<Cell>(_row, i);
     }
 }
 

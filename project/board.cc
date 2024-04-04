@@ -2,7 +2,7 @@
 
 Board::Board() : colHeights{BOARD_WIDTH, 0} {
     for (int i = 0; i < rows.size(); ++i) {
-        rows[i] = std::make_unique<Row>(i);
+        rows[i] = std::make_shared<Row>(i);
     }
 }
 
@@ -23,7 +23,7 @@ void Board::clearRow(const int row) {
     rows[row]->clear();
 
      // Transfer ownership of row
-    std::unique_ptr<Row> clearedRow = std::move(rows[row]);
+    std::shared_ptr<Row> clearedRow = std::move(rows[row]);
 
     // Delete depracated pointer
     rows.erase(rows.begin() + row);
@@ -70,7 +70,7 @@ bool Board::canDrop(const std::vector<int> &blockRows, const std::vector<int> &b
     return true;
 }
 
-bool Board::addBlock(const std::vector<std::unique_ptr<Cell>> blockData) {
+bool Board::addBlock(const std::vector<std::shared_ptr<Cell>> blockData) {
     int blockSize = blockData.size();
     if (blockSize == 0) return true;    // Auto success if no Cells in block (for future-proofing)
 

@@ -215,7 +215,7 @@ void Iblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
     (theGrid[x3 + 1]->(*rowData[y3])).setBlock(blockType::I);
 
     // Set the new occupied Cells
-    occupiedCells[0] = (theGrid[x + 1]->(rowData[y]));
+    occupiedCells[0] = (theGrid[x + 1]->*rowData[y]);
     occupiedCells[1] = (theGrid[x1 + 1]->(rowData[y1]));
     occupiedCells[2] = (theGrid[x2 + 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3]));

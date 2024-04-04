@@ -18,3 +18,5 @@ class Sblock : public Block {
         void moveRight(std::vector<std::shared_ptr<Row>> theGrid) override;
         void drop(std::vector<std::shared_ptr<Row>> theGrid) override;
 };
+
+#endif

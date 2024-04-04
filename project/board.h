@@ -72,7 +72,7 @@ class Board {
          * @note blockData is valid if Cells specified are not already occupied or underneath an occupied cell,
          *       and if the Cells' blockType is not NONE
          */
-        bool addBlock(const std::vector<std::unique_ptr<Cell>> blockData);
+        bool addBlock(const std::vector<std::shared_ptr<Cell>> blockData);
 
         /**
          * @brief Resets the board by setting all Cells in each Row empty, and resetting the colHeights vector
