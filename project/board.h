@@ -8,7 +8,7 @@
 
 class Board {
 
-    std::vector<std::unique_ptr<Row>> rows{BOARD_HEIGHT + 3};
+    std::vector<std::shared_ptr<Row>> rows{BOARD_HEIGHT + 3};
     std::vector<int> colHeights{BOARD_WIDTH};
 
     /**

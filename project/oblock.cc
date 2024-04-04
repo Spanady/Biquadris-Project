@@ -1,5 +1,6 @@
 #include "oblock.h"
 #include <vector>
+#include <memory>
 #include "row.h"
 #include "cell.h"
 
@@ -50,7 +51,7 @@ void Oblock::moveDown(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[3] = (theGrid[x3]->(rowData[y3 - 1]));
 }
 
-void Oblock::moveLeft(std::vector<std::shared_ptr<Row>> theGrid) {
+void Oblock::moveL(std::vector<std::shared_ptr<Row>> theGrid) {
     // Get the coordinates for all the cells the block occupies
     int x = (*occupiedCells[0]).getCol();
     int y = (*occupiedCells[0]).getRow();
@@ -85,7 +86,7 @@ void Oblock::moveLeft(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 - 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
 void Oblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -123,7 +124,7 @@ void Oblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 + 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
 void Oblock::drop(std::vector<std::shared_ptr<Row>> theGrid) {

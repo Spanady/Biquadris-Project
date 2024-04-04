@@ -1,5 +1,6 @@
 #include "iblock.h"
 #include <vector>
+#include <memory>
 #include "row.h"
 #include "cell.h"
 
@@ -105,9 +106,9 @@ void Iblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
 void Iblock::rotateCCW(std::vector<std::shared_ptr<Row>> theGrid) {
     // Rotate the block clockwise 3 times, has the same effect as rotating
     // it counter-clockwise once
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
+    rotateCW(theGrid);
+    rotateCW(theGrid);
+    rotateCW(theGrid);
 }
 
 void Iblock::moveDown(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -181,7 +182,7 @@ void Iblock::moveLeft(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 - 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
 void Iblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -219,5 +220,5 @@ void Iblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 + 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }

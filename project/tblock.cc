@@ -1,5 +1,6 @@
 #include "tblock.h"
 #include <vector>
+#include <memory>
 #include "row.h"
 #include "cell.h"
 
@@ -85,9 +86,9 @@ void Tblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
 }
 
 void Tblock::rotateCCW(std::vector<std::shared_ptr<Row>> theGrid) {
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
+    rotateCW(theGrid);
+    rotateCW(theGrid);
+    rotateCW(theGrid);
 }
 
 void Tblock::moveDown(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -161,7 +162,7 @@ void Tblock::moveLeft(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 - 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
 void Tblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -199,9 +200,9 @@ void Tblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 + 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
-void Tblock::drop() {
+void Tblock::drop(std::vector<std::shared_ptr<Row>> theGrid) {
 
 }

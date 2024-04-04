@@ -1,5 +1,6 @@
 #include "lblock.h"
 #include <vector>
+#include <memory>
 #include "row.h"
 #include "cell.h"
 

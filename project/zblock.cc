@@ -1,5 +1,6 @@
 #include "zblock.h"
 #include <vector>
+#include <memory>
 #include "row.h"
 #include "cell.h"
 
@@ -102,9 +103,9 @@ void Zblock::rotateCW(std::vector<std::shared_ptr<Row>> theGrid) {
 }
 
 void Zblock::rotateCCW(std::vector<std::shared_ptr<Row>> theGrid) {
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
-    rotateCW(std::vector<std::shared_ptr<Row>> theGrid);
+    rotateCW(theGrid);
+    rotateCW(theGrid);
+    rotateCW(theGrid);
 }
 
 void Zblock::moveDown(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -178,7 +179,7 @@ void Zblock::moveLeft(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 - 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 - 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
 void Zblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
@@ -216,7 +217,7 @@ void Zblock::moveRight(std::vector<std::shared_ptr<Row>> theGrid) {
     occupiedCells[2] = (theGrid[x2 + 1]->(rowData[y2]));
     occupiedCells[3] = (theGrid[x3 + 1]->(rowData[y3]));
 
-    if (heavy) moveDown(std::vector<std::shared_ptr<Row>> theGrid);
+    if (heavy) moveDown(theGrid);
 }
 
 void Zblock::drop(std::vector<std::shared_ptr<Row>> theGrid) {
